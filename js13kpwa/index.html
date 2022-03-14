@@ -37,7 +37,24 @@
 	}
 	function showAlert(){
 		sleep(5000);
+		if (Notification.permission == "granted") {
+			var notification = new Notification("Hi，帅哥：", {
+				body: '可以加你为好友吗？',
+				icon: './images/icon-1.png'
+			});
+			var text = document.querySelector('#text');
+			notification.onclick = function() {
+				text.innerHTML = '张小姐已于' + new Date().toTimeString().split(' ')[0] + '加你为好友！';
+				notification.close();
+			};
+			setTimeout(function(){
+				notification.close();
+			},5000);
+		}else {
+			alert('bye bye');
+		}
 		alert("Alert1");
+
 	}
 </script>
 </body>
