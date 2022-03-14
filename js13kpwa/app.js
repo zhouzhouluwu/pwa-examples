@@ -44,7 +44,7 @@ function randomNotification() {
   const randomItem = Math.floor(Math.random() * games.length);
   const notifTitle = 'Alert';
   const notifBody = `Active Shooter`;
-  const notifImg = `data/img/shooter.jpg`;
+  const notifImg = `data/img/shooter.png`;
   const options = {
     body: notifBody,
     icon: notifImg,
@@ -53,7 +53,9 @@ function randomNotification() {
   const audio = new Audio('data/siren.mp3');
     // 播放声音
     audio.play();
-  new Notification(notifTitle, options);
+  var notify=new Notification(notifTitle, options);
+  notify.onclose=function() { audio.pause() };
+  notify.onclick=function() { audio.pause() };
   setTimeout(randomNotification, 30000);
 }
 
