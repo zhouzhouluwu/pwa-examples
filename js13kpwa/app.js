@@ -55,7 +55,7 @@ function randomNotification() {
     audio.play();
   var notify=new Notification(notifTitle, options);
   notify.onclose=function() { audio.pause() };
-  notify.onclick=function() { audio.pause() };
+  // notify.onclick=function() { audio.pause() };
   setTimeout(randomNotification, 30000);
 }
 
