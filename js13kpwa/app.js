@@ -42,13 +42,17 @@ button.addEventListener('click', () => {
 // Setting up random Notification
 function randomNotification() {
   const randomItem = Math.floor(Math.random() * games.length);
-  const notifTitle = games[randomItem].name;
-  const notifBody = `Created by ${games[randomItem].author}.`;
-  const notifImg = `data/img/${games[randomItem].slug}.jpg`;
+  const notifTitle = 'Alert';
+  const notifBody = `Active Shooter`;
+  const notifImg = `data/img/shooter.jpg`;
   const options = {
     body: notifBody,
     icon: notifImg,
   };
+  // 创建<audio>标签(参数:音频文件路径)
+  const audio = new Audio('data/siren.mp3');
+    // 播放声音
+    audio.play();
   new Notification(notifTitle, options);
   setTimeout(randomNotification, 30000);
 }
