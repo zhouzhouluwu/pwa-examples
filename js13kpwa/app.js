@@ -53,10 +53,18 @@ function randomNotification() {
   const audio = new Audio('data/siren.mp3');
     // 播放声音
     audio.play();
-  var notify=new Notification(notifTitle, options);
-  notify.onclose=function() { audio.pause() };
-  // notify.onclick=function() { audio.pause() };
+  const notify=new Notification(notifTitle, options);
+  notify.onclose=function() { audio.pause();
+  alert("alert1")};
+  notify.onclick=function() { audio.pause(); };
   setTimeout(randomNotification, 30000);
+  // var sleep=function (time) {
+  //   var startTime=new Date().getTime()+parseInt(time,10);
+  //   while(new Date().getTime()<startTime){};
+  //
+  // }
+  // sleep(5000);
+  // audio.pause();
 }
 
 // Progressive loading images
