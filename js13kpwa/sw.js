@@ -19,8 +19,8 @@ const appShellFiles = [
   '/pwa-examples/js13kpwa/icons/icon-128.png',
   '/pwa-examples/js13kpwa/icons/icon-168.png',
   '/pwa-examples/js13kpwa/icons/icon-192.png',
-  '/pwa-examples/js13kpwa/icons/icon-256.png',
-  '/pwa-examples/js13kpwa/icons/icon-512.png',
+  // '/pwa-examples/js13kpwa/icons/icon-256.png',
+  // '/pwa-examples/js13kpwa/icons/icon-512.png',
 ];
 const gamesImages = [];
 for (let i = 0; i < games.length; i++) {
