@@ -10,7 +10,7 @@ const appShellFiles = [
   '/pwa-examples/js13kpwa/fonts/graduate.eot',
   '/pwa-examples/js13kpwa/fonts/graduate.ttf',
   '/pwa-examples/js13kpwa/fonts/graduate.woff',
-  '/pwa-examples/js13kpwa/favicon.ico',
+  '/pwa-examples/js13kpwa/icon-64.png',
   '/pwa-examples/js13kpwa/img/js13kgames.png',
   '/pwa-examples/js13kpwa/img/bg.png',
   '/pwa-examples/js13kpwa/icons/icon-32.png',
