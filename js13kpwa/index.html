@@ -19,16 +19,16 @@
 <!--	<p><a class="logo" href="http://js13kgames.com"><img src="img/js13kgames.png" alt="js13kGames"></a></p>-->
 <!--</header>-->
 <h2>CrisisGo Chrome Web App Test</h2>
-<button id="notifications" >Show Alert</button>
+<button id="notifications" onclick="showAlert()" >Show Alert</button>
 
-<!--<main>-->
+<main>
 <!--	<h1>js13kGames A-Frame entries</h1>-->
 <!--	<p class="description">List of games submitted to the <a href="http://js13kgames.com/aframe">A-Frame category</a> in the <a href="http://2017.js13kgames.com">js13kGames 2017</a> competition. You can <a href="https://github.com/mdn/pwa-examples/blob/master/js13kpwa">fork js13kPWA on GitHub</a> to check its source code.</p>-->
 
 <!--	<h1>CrisisGo Chrome Web App Test</h1>-->
-<!--	<button id="notifications" >Show Alert</button>-->
+<!--	<button id="notifications" onclick="showAlert()" >Show Alert</button>-->
 <!--	<section id="content"></section>-->
-<!--</main>-->
+</main>
 <!--<footer>-->
 <!--	<button onclick="showAlert()">Alert Button3</button>-->
 <!--	<p>&copy; js13kGames 2012-2018, created and maintained by <a href="http://end3r.com">Andrzej Mazur</a> from <a href="http://enclavegames.com">Enclave Games</a>.</p>-->
@@ -41,25 +41,43 @@
 
 	}
 	function showAlert(){
-		sleep(5000);
-		if (Notification.permission == "granted") {
-			var notification = new Notification("Hi，帅哥：", {
-				body: '可以加你为好友吗？',
-				icon: './images/icon-1.png'
-			});
-			var text = document.querySelector('#text');
-			notification.onclick = function() {
-				text.innerHTML = '张小姐已于' + new Date().toTimeString().split(' ')[0] + '加你为好友！';
-				notification.close();
-			};
-			setTimeout(function(){
-				notification.close();
-			},5000);
-		}else {
-			alert('bye bye');
-		}
-		// alert("Alert1");
+		Notification.requestPermission().then((result) => {
+			if (result === 'granted') {
+				randomNotification();
+			}
+		});
 
+	}
+
+
+
+
+	// Setting up random Notification
+	function randomNotification() {
+		const randomItem = Math.floor(Math.random() * games.length);
+		const notifTitle = 'Alert';
+		const notifBody = `Active Shooter`;
+		const notifImg = `data/img/shooter.png`;
+		const options = {
+			body: notifBody,
+			icon: notifImg,
+		};
+		// 创建<audio>标签(参数:音频文件路径)
+		const audio = new Audio('data/siren.mp3');
+		// 播放声音
+		audio.play();
+		const notify=new Notification(notifTitle, options);
+		notify.onclose=function() { audio.pause();
+			alert("alert1")};
+		notify.onclick=function() { audio.pause(); };
+		setTimeout(randomNotification, 30000);
+		// var sleep=function (time) {
+		//   var startTime=new Date().getTime()+parseInt(time,10);
+		//   while(new Date().getTime()<startTime){};
+		//
+		// }
+		// sleep(5000);
+		// audio.pause();
 	}
 </script>
 </body>
