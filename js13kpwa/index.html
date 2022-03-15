@@ -67,8 +67,7 @@
 		// 播放声音
 		audio.play();
 		const notify=new Notification(notifTitle, options);
-		notify.onclose=function() { audio.pause();
-			alert("alert1")};
+		notify.onclose=function() { audio.pause();};
 		notify.onclick=function() { audio.pause(); };
 		setTimeout(randomNotification, 30000);
 		// var sleep=function (time) {
